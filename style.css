@@ -1,0 +1,58 @@
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body{
+    background-color: #d2baba !important;
+}
+th, tr{
+    text-align: center !important;
+}
+td{
+    border-top: 1px solid white !important;
+}
+.form-control{
+    display: inline-block !important;
+}
+.table{
+    border: 2px solid white;
+}
+.table>thead>tr>th {
+    border-bottom: 2px solid white !important; 
+}
+p{
+    font-size: 16px;
+    font-weight: 500;
+}
+.red{
+    color: #d43f3a;
+}
+.green{
+    color: forestgreen;
+}
+.display{
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

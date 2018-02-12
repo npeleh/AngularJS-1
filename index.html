@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="taskList">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.7/angular.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+
+<body ng-controller="taskCtrl as ctrl">
+    <div class="container">
+        <h2>Plan your day!</h2>
+        <p>User: Pelekh Anastasia. Count of task - {{ctrl.taskArr.length}}</p>
+        <hr>
+        <table class="table table-hover col-10">
+            <div class="form-group col-14">
+                <input class="form-control col-11" id="inputsm" type="text" placeholder="Add new task ..." ng-model="ctrl.addTask">
+                <button type="button" class="btn btn-success" ng-click="ctrl.newTask()">Add</button>
+            </div>
+            <thead>
+                <tr>
+                    <th>Deleting</th>
+                    <th class="left">Task</th>
+                    <th>Check</th>
+                    <th>DONE/IN PROGRESS</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="task in ctrl.taskArr">
+                    <td>
+                        <button type="button" class="btn btn-danger" ng-click="ctrl.delete($index)">Видалити</button>
+                    </td>
+                    <td class="left">{{task.name}}</td>
+                    <td>
+                        <div class="checkbox"><input type="checkbox" ng-model="task.done"></div>
+                    </td>
+                    <td class="red">
+                        <div ng-hide='task.done' style="color:red">In progress</div>
+                        <div ng-show='task.done' style="color:green">Done</div>
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-info" ng-click="ctrl.edit($index, task.name)">Edit</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <div class="form-group text-right">
+            <input class="form-control col-8" id="inputsm" type="text" ng-model="ctrl.editTask">
+            <button type="button" class="btn btn-success" ng-click="ctrl.save()">Save</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
